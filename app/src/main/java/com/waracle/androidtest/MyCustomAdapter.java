@@ -63,9 +63,9 @@ public class MyCustomAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         View root = inflater.inflate(R.layout.list_item_layout, parent, false);
         if (root != null) {
-            TextView title = (TextView) root.findViewById(R.id.title);
-            TextView desc = (TextView) root.findViewById(R.id.desc);
-            ImageView image = (ImageView) root.findViewById(R.id.image);
+            TextView title = root.findViewById(R.id.title);
+            TextView desc = root.findViewById(R.id.desc);
+            ImageView image = root.findViewById(R.id.image);
             try {
                 JSONObject object = (JSONObject) getItem(position);
                 title.setText(object.getString("title"));

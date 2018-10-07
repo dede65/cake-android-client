@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            mListView = (ListView) rootView.findViewById(android.R.id.list);
+            mListView = rootView.findViewById(android.R.id.list);
             return rootView;
         }
 
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             JSONArray array = null;
 
             try {
+                // Load data from net.
                 array = new MyAsyncTask(new ProgressDialog(getActivity())).execute(JSON_URL).get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -117,21 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
             //mListView.setAdapter(mAdapter);
             mListView.setAdapter(myCustomAdapter);
-
-            // Load data from net.
-            /*
-            try {
-                JSONArray array = loadData();
-                mAdapter.setItems(array);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            */
-
-
-
         }
 
 
